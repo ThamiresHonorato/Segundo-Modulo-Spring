@@ -35,6 +35,9 @@ public class Postagem {
 	private Date data = new java.sql.Date(System.currentTimeMillis());
 
 	
+	
+	
+	
 	public Long getId() {
 		return id;
 	}
