@@ -27,7 +27,7 @@ public class UsuarioService {
 		return repository.save(usuario);
 	}
 
-	public Optional<UserLogin> Logar(Optinal<UserLogin> user) {
+	public Optional<UserLogin> Logar(Optional<UserLogin> user) {
 		BCryptPasswordEncoder enconder = new BCryptPasswordEncoder();
 		Optional<Usuario> usuario = repository.findByUsuario(user.get().getUsuario());
 		
@@ -37,7 +37,7 @@ public class UsuarioService {
 				byte[] encodedAuth = Base64.encodeBase64(auth.getBytes(Charset.forName("US-ASCII")));
 				String authHeader = "Basic " + new String(encodedAuth);
 				 user.get().setToken(authHeader);
-				 user.get().setNome(usuario.get().getNome());
+				 user.get().setName(usuario.get().getNome());
 				 
 				 return user;
 				
